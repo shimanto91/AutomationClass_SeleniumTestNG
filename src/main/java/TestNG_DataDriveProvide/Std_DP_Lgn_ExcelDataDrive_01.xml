@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Cb_Login_Test">
+    <test name="Login Functional Test : Data Provided From Excel: In Chrome: ">
+        <parameter name="Browser" value="chrome"></parameter>
+        <classes>
+            <class name="TestNG_DataDriveProvide.DP_Lgn_ExcelDataDrive_01"/>
+        </classes>
+    </test>
+</suite>

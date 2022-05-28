@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="ReportDemo_01">
+    <test name="Login Functional Test">
+        <classes>
+            <class name="TestNG.SelVsTestNgDemo_01_Log"></class>
+            <class name="TestNG.SelVsTestNgDemo_02_Log"></class>
+            <class name="TestNG_Report.Report_01"></class>
+        </classes>
+    </test>
+</suite>

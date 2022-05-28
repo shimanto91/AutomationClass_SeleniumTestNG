@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RepDesLog_01">
+    <test name="Login Functional Test : Data Provided From Excel: In Chrome: ">
+        <parameter name="Browser" value="chrome"></parameter>
+        <classes>
+            <class name="TestNG_Report.Report_02_Design"/>
+        </classes>
+    </test>
+</suite>
