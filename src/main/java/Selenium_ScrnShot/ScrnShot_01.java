@@ -19,6 +19,6 @@ public class ScrnShot_01 extends BaseClass {
         //Capture
         File srcFile = ((TakesScreenshot)driverObj).getScreenshotAs(OutputType.FILE);
         //Save
-        FileUtils.copyFile(srcFile,new File("./Screenshot/Google.png"),true);
+        FileUtils.copyFile(srcFile,new File("./Screenshot/opera.png"),true);
     }
 }

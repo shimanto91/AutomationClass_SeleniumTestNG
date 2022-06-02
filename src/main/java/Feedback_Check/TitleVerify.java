@@ -1,19 +1,18 @@
-package MethodCall;
+package Feedback_Check;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import UseMethods.RndStr;
-
-public class MultipleLgn_01 extends RndStr {
+public class TitleVerify {
     public static WebDriver driverObj;
 
-    public static void main(String... args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         chrome_launch();
         open_website("https://demo.opencart.com");
-        Register_TC02();
+        Thread.sleep(1000);
+        Register_TC03();
         Thread.sleep(1000);
         browser_close();
     }
@@ -28,9 +27,10 @@ public class MultipleLgn_01 extends RndStr {
         driverObj.get(URL);
     }
 
-    public static void Register_TC02() throws InterruptedException {
+    public static void Register_TC03() throws InterruptedException {
         WebElement myAccount = driverObj.findElement(By.linkText("My Account"));
         myAccount.click();
+        Thread.sleep(1000);
         WebElement register = driverObj.findElement(By.linkText("Register"));
         register.click();
 
@@ -47,30 +47,25 @@ public class MultipleLgn_01 extends RndStr {
 
         firstname.sendKeys("abcd");
         lastname.sendKeys("vwxyz");
-        email.sendKeys(generateRndStr()+"@gmail.com");
-        Thread.sleep(2000);
+        email.sendKeys("testassign5@test.com");
         telephone.sendKeys("0123456789");
         password.sendKeys("1234567");
         confirm.sendKeys("1234567");
         newsletter.click();
         agree.click();
+        Thread.sleep(1000);
         submitBtn.click();
 
-        String expectedMessage1 = "Your Account Has Been Created!";
-        WebElement errorMessage1 = driverObj.findElement(By.xpath("//*[@id=\"content\"]/h1"));
-        String actualMessage1 = errorMessage1.getText();
+        String expectedTitle = "Your Account Has Been Created!";
+        String actualTitle = driverObj.getTitle();
 
-        if(expectedMessage1.equalsIgnoreCase(actualMessage1)){
+        if(expectedTitle.equalsIgnoreCase(actualTitle)){
             System.out.println("Test Passed: Created");
         }else{
-            System.out.println("BUG!");
+            System.out.println("BUG!" + actualTitle);
         }
     }
     public static void browser_close() {
         driverObj.close();
     }
 }
-
-
-
-

@@ -1,18 +1,21 @@
-package WebElementTest;
+package MethodCall;
 
+import BasePackage.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TitleVerify {
+
+//Class has been changed to Baseclass from RndStr
+
+public class RndLgn_01 extends BaseClass {
     public static WebDriver driverObj;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String... args) throws InterruptedException {
         chrome_launch();
         open_website("https://demo.opencart.com");
-        Thread.sleep(1000);
-        Register_TC03();
+        Register_TC02();
         Thread.sleep(1000);
         browser_close();
     }
@@ -27,10 +30,9 @@ public class TitleVerify {
         driverObj.get(URL);
     }
 
-    public static void Register_TC03() throws InterruptedException {
+    public static void Register_TC02() throws InterruptedException {
         WebElement myAccount = driverObj.findElement(By.linkText("My Account"));
         myAccount.click();
-        Thread.sleep(1000);
         WebElement register = driverObj.findElement(By.linkText("Register"));
         register.click();
 
@@ -47,25 +49,30 @@ public class TitleVerify {
 
         firstname.sendKeys("abcd");
         lastname.sendKeys("vwxyz");
-        email.sendKeys("testassign5@test.com");
+        email.sendKeys(generateRndStr()+"@gmail.com");
+        Thread.sleep(2000);
         telephone.sendKeys("0123456789");
         password.sendKeys("1234567");
         confirm.sendKeys("1234567");
         newsletter.click();
         agree.click();
-        Thread.sleep(1000);
         submitBtn.click();
 
-        String expectedTitle = "Your Account Has Been Created!";
-        String actualTitle = driverObj.getTitle();
+        String expectedMessage1 = "Your Account Has Been Created!";
+        WebElement errorMessage1 = driverObj.findElement(By.xpath("//*[@id=\"content\"]/h1"));
+        String actualMessage1 = errorMessage1.getText();
 
-        if(expectedTitle.equalsIgnoreCase(actualTitle)){
+        if(expectedMessage1.equalsIgnoreCase(actualMessage1)){
             System.out.println("Test Passed: Created");
         }else{
-            System.out.println("BUG!" + actualTitle);
+            System.out.println("BUG!");
         }
     }
     public static void browser_close() {
         driverObj.close();
     }
 }
+
+
+
+

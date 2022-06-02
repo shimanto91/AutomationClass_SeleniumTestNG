@@ -13,6 +13,7 @@ public class Navigation_01 extends BaseClass {
         nav_forward();
         Thread.sleep(2000);
         reload();
+        browser_quit();
     }
     public static void nav_to(){
         driverObj.navigate().to("https://demo.opencart.com");

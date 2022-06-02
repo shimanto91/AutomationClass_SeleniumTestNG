@@ -10,7 +10,7 @@ public class Browser_04_getGUI_ID02 extends BaseClass {
         chrome_launch();
         open_website("https://the-internet.herokuapp.com/windows");
         wndw_ID();
-        browser_close();
+        browser_quit();
     }
     public static void wndw_ID(){
         String parentGUID = driverObj.getWindowHandle();

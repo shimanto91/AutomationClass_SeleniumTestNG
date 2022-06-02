@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Browser_02 {
     public static void main(String[] args) throws Exception {
+        System.setProperty("webdriver.gecko.driver", "./Drivers/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         driver.get("https://firefox.com");
         //driver.manage().window().maximize();

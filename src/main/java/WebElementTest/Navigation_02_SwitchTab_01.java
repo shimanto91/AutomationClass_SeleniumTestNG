@@ -6,14 +6,14 @@ import org.openqa.selenium.By;
 import java.util.Set;
 
 public class Navigation_02_SwitchTab_01 extends BaseClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         chrome_launch();
         open_website("https://the-internet.herokuapp.com/windows");
         switchWindow();
         //browser_close(); //CLoses only current tab
         browser_quit();
     }
-    public static void switchWindow(){
+    public static void switchWindow() throws InterruptedException {
         String parentGUID = driverObj.getWindowHandle();
         //System.out.println(parentGUID);
 
@@ -24,6 +24,7 @@ public class Navigation_02_SwitchTab_01 extends BaseClass {
         for(String ChildGuid:allGuids){
             if(!ChildGuid.equals(parentGUID));
             driverObj.switchTo().window(ChildGuid);
+            //Thread.sleep(3000);
             driverObj.get("https://google.com");
         }
 
